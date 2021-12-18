@@ -127,7 +127,7 @@ struct touchpad_gesture_drag : public wf::singleton_plugin_t<virtual_pointer> {
 		    .time_msec = ev->time_msec,
 		    .delta_x = wl_fixed_to_double(ev->dx) * 100,
 		    .delta_y = wl_fixed_to_double(ev->dy) * 100,
-		    .unaccel_dx = wl_fixed_to_double(ev->dy) * 1,
+		    .unaccel_dx = wl_fixed_to_double(ev->dx) * 1,
 		    .unaccel_dy = wl_fixed_to_double(ev->dy) * 1,
 		};
 		wl_signal_emit(&(dev->pointer->events.motion), &motion);
