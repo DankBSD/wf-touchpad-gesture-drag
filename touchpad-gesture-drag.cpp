@@ -77,7 +77,10 @@ struct touchpad_gesture_drag : public wf::singleton_plugin_t<virtual_pointer> {
 	wf::signal_connection_t on_hold_begin = [=](wf::signal_data_t *data) {
 		auto wf_ev = static_cast<event<wlr_event_pointer_hold_begin> *>(data);
 		auto ev = wf_ev->event;
-		if (static_cast<int>(ev->fingers) != fingers) return;
+		if (static_cast<int>(ev->fingers) != fingers) {
+			hold_start_msec = INT64_MIN;
+			return;
+		}
 		wf_ev->carried_out = true;
 		hold_start_msec = ev->time_msec;
 		hold_end_msec = INT64_MIN;
@@ -89,6 +92,7 @@ struct touchpad_gesture_drag : public wf::singleton_plugin_t<virtual_pointer> {
 		wf_ev->carried_out = true;
 		auto ev = wf_ev->event;
 		if (!ev->cancelled || ev->time_msec - hold_start_msec < hold_threshold_msec) return;
+		hold_start_msec = INT64_MIN;
 		hold_end_msec = ev->time_msec;
 	};
 
