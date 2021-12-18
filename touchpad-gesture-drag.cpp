@@ -51,12 +51,12 @@ struct virtual_pointer : public wf::custom_data_t {
 };
 
 struct touchpad_gesture_drag : public wf::singleton_plugin_t<virtual_pointer> {
-	// TODO: settings
-	int fingers = 3;
+	wf::option_wrapper_t<int> fingers{"touchpad-gesture-drag/fingers"};
+	wf::option_wrapper_t<int> hold_threshold_msec{"touchpad-gesture-drag/threshold"};
+
 	bool dragging = false;
 	int64_t hold_start_msec = INT64_MIN;
 	int64_t hold_end_msec = INT64_MIN;
-	int hold_threshold_msec = 150;
 
 	inline nonstd::observer_ptr<virtual_pointer> get_shared() {
 		return &wf::get_core().get_data_safe<wf::detail::singleton_data_t<virtual_pointer>>()->ptr;

@@ -2,6 +2,19 @@
 <wayfire>
 	<plugin name="touchpad-gesture-drag">
 		<_short>Touchpad Gesture Drag</_short>
+		<_long>Allows you to hold and drag fingers on a multi-touch touchpad to perform drag-and-drop</_long>
 		<category>Desktop</category>
+		<option name="fingers" type="int">
+			<_short>Fingers</_short>
+			<_long>How many fingers to use for the drag-and-drop gesture</_long>
+			<default>3</default>
+			<min>3</min>
+		</option>
+		<option name="threshold" type="int">
+			<_short>Holding Threshold</_short>
+			<_long>How many milliseconds are required between starting a hold (putting the fingers on the touchpad and not moving) and starting to move the fingers for the gesture to register</_long>
+			<default>100</default>
+			<min>1</min>
+		</option>
 	</plugin>
 </wayfire>
