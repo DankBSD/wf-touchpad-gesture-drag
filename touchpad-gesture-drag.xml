@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<wayfire>
+	<plugin name="touchpad-gesture-drag">
+		<_short>Touchpad Gesture Drag</_short>
+		<category>Desktop</category>
+	</plugin>
+</wayfire>
