@@ -5,8 +5,6 @@
 Limitations:
 
 - currently requires [THIS WAYFIRE PR](https://github.com/WayfireWM/wayfire/pull/1388)
-- does not accelerate the pointer movement :( [no libinput API for manually applying accel yet](https://gitlab.freedesktop.org/libinput/libinput/-/issues/715)
-  - as a workaround deltas are just multiplied by 100 to make them not unusably slow
 - cursor won't move in nested (windowed wayland backend) mode :D
 
 [Wayfire]: https://github.com/WayfireWM/wayfire
